@@ -1,0 +1,389 @@
+body {
+    padding-top: 70px; /* Adjust padding to account for the height of the navigation bar */
+    background-image: url('homebg.png');
+    background-attachment: fixed;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+    z-index: 1000;
+    background-color: white; /* Add this rule to give the navigation bar a white background color */
+  }
+  
+  nav img {
+    width: 100px;
+    cursor: pointer;
+    margin-right: 40px;
+  }
+  
+  nav .navigation ul {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+  }
+  
+  nav .navigation ul li {
+    list-style: none;
+    margin-left: 30px;
+  }
+  
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white; /* Change background color to white */
+      min-width: 160px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      z-index: 1;
+  }
+  nav .navigation ul li a {
+    text-decoration: none;
+    color: rgb(21, 21, 100);
+    font-size: 23px;
+    font-weight: 500;
+    transition: 0.3s ease;
+  }
+  .navigation h1 {
+      margin:0;
+      text-align:left;
+  }
+  nav .navigation ul li a:hover {
+    color: #8a2be2;
+  }
+  nav {
+      display: flex;
+      justify-content: space-between; /* Aligns items with space in-between */
+      align-items: center; /* Vertically centers the items */
+      padding: 10px;
+  }
+  nav .navigation ul {
+      display: flex;
+      justify-self: flex-start; /* Adjusted alignment to flex-start */
+      align-items: center;
+      margin-left: 30px; /* Added margin to move the navigation items to the left */
+  }
+  
+  nav .navigation ul li {
+      list-style: none;
+      margin-right: 30px; /* Added margin to create space between navigation items */
+  }
+  
+  
+  .logo-container {
+      display: flex;
+      align-items: center; /* Vertically centers the logo and text */
+  }
+  
+  .logo-container img {
+      width: 50px; /* Adjust according to your logo size */
+      height: auto;
+      margin-right: 10px; /* Adds space between logo and text */
+  }
+  
+  .brand {
+      text-decoration: none;
+      color: #0f0f0f;
+      font-weight: bold;
+  }
+  
+  
+  /---home/
+  #home{
+      background-image: linear-gradient(rgba(9,5,54,0.3),rgba(5,4,46,0.7)),url("images/ss.jpg");
+      width: 100%;
+      height:100vh;
+      background-size: cover;
+      background-position: center;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+  #home h2{
+      color:#fff;
+      font-size: 2.9rem;
+      letter-spacing: 1px;
+  }
+  #home p{
+      width:100%;
+      color:#fff;
+      font-size: 2.5rem;
+      line-height:50px;
+  }
+  .search-bar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 20px; /* Adjusted border radius */
+      overflow: hidden;
+      margin-bottom: 2rem;
+      height: 50px;
+      width: 80%; /* Adjusted width */
+      max-width: 600px;
+  }
+  .search-bar form {
+      width: 80%; /* Reduce the width of the form */
+      max-width: 600px; /* Increase the maximum width for the form */
+      position: relative;
+      display: flex; /* Add flex display to the form */
+  }
+  .search-bar input[type="text"] {
+      padding: 10px;
+      font-size: 1.6rem;
+      width: 90%; /* Adjusted width */
+      max-width: 90%; /* Adjusted max-width */
+      border: none;
+      border-radius: 20px; /* Adjusted border radius */
+      outline: none;
+      flex: 1;
+  }
+  .search-bar button {
+      position: center;
+      right: 0;
+      top: 0;
+      background-color: #8a2be2;
+      color: #fff;
+      border: none;
+      padding: 10px; /* Reduce padding */
+      border-radius: 0 25px 25px 0; /* Adjusted border-radius to match the input */
+      cursor: pointer;
+      height: 100%; /* Set the button height to 100% */
+      display: flex; /* Add flex display to the button */
+      align-items: center; /* Center the icon vertically */
+  }
+  
+  .search-bar button i {
+      font-size: 1.8rem; /* Reduce the font size of the icon */
+  }
+  
+  
+  #subjects {
+    padding: 5vw 8vw 0 8vw;
+    text-align: center;
+    margin-bottom: 100px; /* Add margin to create space between subjects and footer */
+  }
+  
+  #subjects h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  #subjects p {
+    font-size: 1.5rem;
+  }
+  
+  #subjects .sub-base {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+    margin-top: 50px;
+  }
+  
+  #subjects .sub-box {
+    background:  #5462a3; 
+    text-align: start;
+    padding: 2rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  #subjects .sub-box:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  #subjects .sub-box h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f8f8f8; /* Light Gray */
+    padding: 13px 0 7px 0;
+  }
+  
+  
+  /* Style the dropdown button */
+  .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+  }
+  /* Style the dropdown content (hidden by default) */
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      z-index: 1;
+  }
+  
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+      background-color: #ddd;
+  }
+  
+  /* Show the dropdown content when the dropdown button is clicked */
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  footer{
+              padding: 7vw;
+              margin: 0;
+              margin-top: 5px;
+              background-color: #101c32;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              flex-wrap: wrap;
+  
+          }
+          footer .footer-col{
+              padding-bottom: 40px;
+          }
+  
+          footer h3{
+              color:#FDC93B;
+              font-weight: 600;
+              padding-bottom: 20px;
+  
+          }
+          footer li{
+              list-style: none;
+              color: #7b838a;
+              padding: 10px 0;
+              font-size: 15px;
+              cursor: pointer;
+              transition: 0.3s ease;
+          }
+          footer li:hover{
+              color: rgb(241, 240, 245);
+          }
+          footer h4{
+              color:white;
+              font-weight: bold;
+              margin: 5px 0;
+          }
+          footer p{
+              color: whitesmoke;
+          }
+          footer .queries{
+              margin-top: 20px;
+          }
+          footer #query-box{
+              padding: 15px 12px;
+              background: #334f6c;
+              border: none;
+              font-size: 12px;
+              outline: none;
+              color: #fff;
+          }
+          footer .queries a{
+              text-decoration: none;
+              font-size: 0.9rem;
+              padding: 13px 15px;
+              background-color: #fff;
+              font-weight: 600;
+              border-radius: 5px;
+          }
+          footer .queries a.yellow{
+              color: #fff;
+              background:#FDC93B;
+              transition: 0.3s ease;
+  
+          }
+          footer .queries a.yellow:hover{
+              color: rgb(21,21,100);
+              background: #fff;
+          }
+  
+   /*------tablet---------/
+  /* Media Query for Phones */
+  @media only screen and (max-width: 600px) {
+    body {
+      padding-top: 120px; /* Adjust padding for smaller screens */
+    }
+  
+    nav img {
+      width: 80px; /* Decrease the width of the logo for smaller screens */
+      margin-right: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    .navigation ul {
+      display: none; /* Hide the navigation links by default on smaller screens */
+    }
+  
+    .navigation h1 {
+      text-align: center; /* Center the heading */
+    }
+  
+    .search-bar {
+      width: 90%; /* Adjust width for smaller screens */
+      height: 40px; /* Decrease height for smaller screens */
+      margin-bottom: 1rem; /* Adjust margin for smaller screens */
+    }
+  
+    .search-bar input[type="text"] {
+      font-size: 1.2rem; /* Decrease font size for smaller screens */
+    }
+  
+    .search-bar button {
+      padding: 8px; /* Adjust padding for smaller screens */
+    }
+  
+    #subjects {
+      padding: 5vw 2vw 0 2vw; /* Adjust padding for smaller screens */
+    }
+  
+    #subjects .sub-base {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+    }
+  
+    #subjects .sub-box {
+      padding: 1rem; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  /* Media Query for Tablets */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    nav img {
+      width: 100px; /* Adjust width of the logo for tablets */
+      margin-right: 30px; /* Adjust margin for tablets */
+    }
+  
+    .search-bar {
+      width: 70%; /* Adjust width for tablets */
+      height: 50px; /* Increase height for tablets */
+    }
+  
+    .search-bar input[type="text"] {
+      font-size: 1.4rem; /* Decrease font size for tablets */
+    }
+  
+    #subjects .sub-base {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for tablets */
+    }
+  }
