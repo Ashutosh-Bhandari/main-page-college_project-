@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Study Sphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="hme.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="images.jpg" alt="">
+            <a href="#" class="brand">STUDY SPHERE</a>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="About.php">About</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Login
+                            <i class="dropdown_i"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="items" href="login.php">Student</a>
+                            <a class="items" href="login.php">Admin</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!---Home---->
+    <section id="home">
+        <div class="search-bar">
+            <form id="searchForm" action="javascript:void(0);">
+                <input type="text" placeholder="search" name="q" id="searchInput">
+                <input type="hidden" id="baseUrl" value="./"> <!-- Relative URL to the root of your website -->
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <!--subjects-->
+    <section id="subjects">
+        <h1>SUBJECTS</h1>
+        <p> Get all your notes in one place with STUDY SPHERE.</p>
+        <div class="sub-base">
+            <a href="view_files.php" class="sub-box">
+                <i class="fa-solid fa-calculator"></i>
+                <h3>MATHEMATICS</h3>
+                <div class="dropdown">
+                    <button class="dropbtn">></button>
+                    <div class="dropdown-content">
+                        <a href="#">semester 1</a>
+                        <a href="#">semester 2</a>
+                        <a href="#">semester 3</a>
+                        <a href="#">semester 4</a>
+                        <a href="#">semester 5</a>
+                    </div>
+                </div>
+            </a>
+
+            <a href="landing2.php" class="sub-box">
+                <i class="fa-solid fa-calculator"></i>
+                <h3>COMPUTER-SCIENCE</h3>
+                <div class="dropdown">
+                    <button class="dropbtn">></button>
+                    <div class="dropdown-content">
+                        <a href="#">semester 1</a>
+                        <a href="#">semester 2</a>
+                        <a href="#">semester 3</a>
+                        <a href="#">semester 4</a>
+                        <a href="#">semester 5</a>
+                    </div>
+                </div>
+            </a>
+
+            <div class="sub-box">
+                <i class="fa-brands fa-windows"></i>
+                <h3>PHYSICS</h3>
+                <div class="dropdown">
+                    <button class="dropbtn">></button>
+                    <div class="dropdown-content">
+                        <a href="#">semester 1</a>
+                        <a href="#">semester 2</a>
+                        <a href="#">semester 3</a>
+                        <a href="#">semester 4</a>
+                        <a href="#">semester 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-box">
+                <i class="fa-solid fa-c"></i>
+                <h3>CHEMISTRY</h3>
+                <div class="dropdown">
+                    <button class="dropbtn">></button>
+                    <div class="dropdown-content">
+                        <a href="#">semester 1</a>
+                        <a href="#">semester 2</a>
+                        <a href="#">semester 3</a>
+                        <a href="#">semester 4</a>
+                        <a href="#">semester 5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="section1">
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <h4>Address :</h4>
+            <p>St Joseph's University,<br>
+                36 Lalbagh Road,<br>
+                Bengaluru-560027, Karnataka, India</p>
+            <h4>Phone :</h4>
+            <p>Reception: 9876543210</p>
+            <h4>Email :</h4>
+            <p>desk@sju.edu.in</p>
+            <p>fantastic4@gmail</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1476003092102!2d77.59386127484123!3d12.962405487352159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d9fddb0f15%3A0xdec852132523ceae!2sSt%20Joseph&#39;s%20University!5e0!3m2!1sen!2sin!4v1707668196513!5m2!1sen!2sin" width="400" height="200" style="border:0; margin-top: 30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Access</h3>
+            <ul>
+                <li><a href="#">Student Login</a></li>
+                <li><a href="#">Admin Login</a></li>
+                <li><a href="#">Library</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>The University</h3>
+            <ul>
+                <li><a href="#">About the University</a></li>
+                <li><a href="#">Vision and Mission</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Queries</h3>
+            <p>Questions regarding the library</p>
+            <div class="queries">
+                <textarea id="query-box" name="query" rows="10" cols="50"></textarea><br><br>
+                <a href="#" class="yellow">Submit</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const baseUrl = document.getElementById('baseUrl').value;
+
+        searchForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const keywords = searchInput.value.toLowerCase();
+
+            if (keywords.includes('math') || keywords.includes('maths') || keywords.includes('mathematics')) {
+                window.location.href = baseUrl + 'view_files.php';
+            } else if (keywords.includes('computer') || keywords.includes('computer science')) {
+                window.location.href = baseUrl + 'landing2.php';
+            } else {
+                alert('No matching results found.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
