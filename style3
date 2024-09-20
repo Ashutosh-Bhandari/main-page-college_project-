@@ -1,0 +1,252 @@
+/* Global Variables */
+:root {
+    --bg-color: #13131f;
+    --bg-color-2: #161623;
+    --text-color: #a9afc3;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: url('background.jpg'); 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    max-width: 300px;
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--bg-color-2);
+    box-shadow: 0 10px 20px -4px #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: opacity 0.3s ease, visibility 0.2s ease, transform 0.3s ease;
+}
+
+/* when the sidebar has 'show' class */
+#sidebar.show {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.sidebar_content {
+    padding: 2.8rem 0;
+    pointer-events: none;
+}
+
+.sidebar_content a {
+    pointer-events: all;
+}
+
+.sidebar_body {
+    border-top: 1px dashed var(--text-color);
+    border-bottom: 1px dashed var(--text-color);
+}
+
+.side_navlinks ul {
+    display: grid;
+    gap: 2rem;
+}
+
+.side_navlinks li a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.side_navlinks a:hover {
+    opacity: 1;
+}
+
+/* Sidebar-Toggler */
+.sidebar_toggler {
+    position: fixed;
+    top: 70px;
+    right: 3vw;
+    width: 1.75rem;
+    height: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sidebar_toggler span {
+    background-color: #ddd;
+    width: 100%;
+    height: 2.4px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* if the sidebar has 'show' class then their adjacent-sibling (i.e., sidebar_toggler) will... */
+#sidebar.show + .sidebar_toggler {
+    justify-content: center;
+}
+
+#sidebar.show + .sidebar_toggler span {
+    margin-top: -1.2px;
+    margin-bottom: -1.2px;
+}
+
+#sidebar.show + .sidebar_toggler span:first-child {
+    transform: rotate(45deg);
+}
+
+#sidebar.show + .sidebar_toggler span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+#sidebar.show + .sidebar_toggler span:last-child {
+    transform: rotate(-45deg);
+}
+
+.dropbtn {
+    background-color: #333;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #333;
+}
+
+/* Show the dropdown content when the dropdown button is hovered */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.content {
+    margin-top: 150px; /* Adjust the top margin as needed */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.content + .content {
+    margin-top: 40px; /* Add additional margin between multiple PDF viewers */
+}
+
+.content embed {
+    width: 25%; /* Make the PDF viewer responsive */
+    height: 50px; /* Set the height of the PDF viewer */
+    display: block;
+}
+
+.header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.file-section {
+    margin-top: 20px;
+}
+
+table {
+    width: 50%; /* Adjust as needed */
+    margin: 0 auto; /* Center the table horizontally */
+    background-color: #fff; /* Set background color to white */
+    color: #000; /* Set text color to black */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
